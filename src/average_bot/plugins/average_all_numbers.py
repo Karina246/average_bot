@@ -14,7 +14,7 @@ class AvergaeAllNumbersJob(Job):
             all_public_channels = slack_client.api_call("conversations.list")['channels']
             channels_with_bot = filter(lambda channel: channel['is_member'] == True, all_public_channels)
             random_channel = random.choice(channels_with_bot)['id']
-            User.post_this_average = True
+            User.this_average_written = True
             return [[random_channel, "Average all " + User.get_average_users()]]
 
 
